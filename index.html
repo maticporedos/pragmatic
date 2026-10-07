@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="sl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRAGMATIC Coaching</title>
+<meta name="description" content="Online osebno trenerstvo — Matic Poredoš. Your effort. My guidance.">
+<meta property="og:title" content="PRAGMATIC Coaching">
+<meta property="og:description" content="Online osebno trenerstvo — Matic Poredoš. Your effort. My guidance.">
+<meta property="og:image" content="https://maticporedos.github.io/pragmatic/hero.jpg">
+<meta name="theme-color" content="#0B0B0B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0B0B0B;
+    --card: #161616;
+    --card-hover: #1E1E1E;
+    --border: #262626;
+    --text: #FFFFFF;
+    --muted: #A3A3A3;
+    --red: #E10600;
+    --red-hover: #FF1F14;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.5;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  /* naslovna fotografija se spodaj prelije v crno ozadje, cez njo logotip */
+  .hero { position: relative; height: 68vh; min-height: 420px; max-height: 640px; }
+  .hero-img {
+    position: absolute; inset: 0;
+    background: url('hero.jpg') center 22% / cover no-repeat;
+    filter: saturate(0.85) contrast(1.05);
+  }
+  .hero::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(11,11,11,0) 30%, rgba(11,11,11,0.55) 62%, var(--bg) 96%);
+  }
+  /* na racunalniku fotografija ostane sirine telefona, robovi se zlijejo v crno */
+  @media (min-width: 620px) {
+    .hero { max-width: 600px; margin: 0 auto; }
+    .hero-img { -webkit-mask-image: linear-gradient(to right, transparent, #000 18%, #000 82%, transparent);
+                mask-image: linear-gradient(to right, transparent, #000 18%, #000 82%, transparent); }
+  }
+  .hero-text { position: absolute; left: 0; right: 0; bottom: 18px; z-index: 2; text-align: center; padding: 0 16px; }
+  .hero-text img { width: min(78%, 330px); height: auto; display: block; margin: 0 auto; filter: drop-shadow(0 2px 14px rgba(0,0,0,.6)); }
+  .slogan { margin-top: 12px; color: var(--muted); font-size: .72rem; font-weight: 600; letter-spacing: .32em; text-transform: uppercase; }
+
+  main { position: relative; z-index: 2; max-width: 460px; margin: 0 auto; padding: 6px 16px 40px; }
+
+  .socials { display: flex; justify-content: center; gap: 12px; margin: 6px 0 22px; }
+  .socials a {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--card); border: 1px solid var(--border);
+    display: grid; place-items: center; transition: border-color .15s, color .15s;
+  }
+  .socials a:hover { border-color: var(--red); color: var(--red); }
+  .socials svg { width: 20px; height: 20px; fill: currentColor; }
+
+  .cta {
+    display: flex; align-items: center; gap: 14px;
+    background: var(--red); border-radius: 14px; padding: 16px 18px;
+    box-shadow: 0 8px 28px rgba(225, 6, 0, .28); transition: background .15s, transform .15s;
+  }
+  .cta:hover { background: var(--red-hover); transform: translateY(-1px); }
+  .cta .label { flex: 1; }
+  .cta strong { display: block; font-size: 1.02rem; font-weight: 800; }
+  .cta span { display: block; font-size: .82rem; opacity: .9; margin-top: 2px; }
+  .cta .arrow { font-size: 1.3rem; font-weight: 700; }
+  .badge { display: inline-block; background: #fff; color: var(--red); font-size: .62rem; font-weight: 800; letter-spacing: .08em; padding: 2px 6px; border-radius: 4px; margin-left: 6px; vertical-align: 2px; }
+
+  h2 {
+    font-family: 'Archivo Black', 'Inter', sans-serif; font-weight: 400;
+    font-size: .8rem; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--red); margin: 34px 0 12px;
+  }
+  p { color: #E6E6E6; font-size: .95rem; }
+  p + p { margin-top: 10px; }
+
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 16px; }
+  .stat { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 12px 8px; text-align: center; }
+  .stat b { display: block; font-family: 'Archivo Black', sans-serif; font-weight: 400; font-size: 1.25rem; color: #fff; }
+  .stat small { display: block; color: var(--muted); font-size: .7rem; line-height: 1.3; margin-top: 4px; }
+
+  .list { display: grid; gap: 8px; }
+  .item { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
+  .item .dot { flex: none; width: 26px; height: 26px; border-radius: 8px; background: rgba(225, 6, 0, .14); color: var(--red); display: grid; place-items: center; font-weight: 800; font-size: .8rem; }
+  .item strong { display: block; font-size: .93rem; }
+  .item span { display: block; color: var(--muted); font-size: .84rem; margin-top: 2px; }
+
+  blockquote {
+    margin-top: 34px; padding: 18px 18px 18px 20px; border-left: 4px solid var(--red);
+    background: var(--card); border-radius: 0 12px 12px 0; font-size: 1rem; font-weight: 600; color: #fff;
+  }
+  blockquote small { display: block; margin-top: 8px; color: var(--muted); font-weight: 500; font-size: .8rem; }
+
+  .link {
+    display: flex; align-items: center; gap: 14px; margin-top: 10px;
+    background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 15px 16px;
+    transition: background .15s, border-color .15s;
+  }
+  .link:hover { background: var(--card-hover); border-color: #3a3a3a; }
+  .link .label { flex: 1; }
+  .link strong { display: block; font-size: .95rem; }
+  .link span { display: block; color: var(--muted); font-size: .82rem; }
+  .bottom-cta { margin-top: 30px; }
+
+  footer { margin-top: 36px; text-align: center; color: #6B6B6B; font-size: .75rem; letter-spacing: .04em; }
+</style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-img" role="img" aria-label="Matic Poredoš v fitnesu"></div>
+    <div class="hero-text">
+      <img src="logo.svg" alt="PRAGMATIC Coaching">
+      <p class="slogan">Your effort. My guidance.</p>
+    </div>
+  </header>
+
+  <main>
+    <nav class="socials" aria-label="Družbena omrežja">
+      <a href="https://instagram.com/matic_poredos" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9z"/></svg>
+      </a>
+      <a href="https://tiktok.com/@matic_poredos" aria-label="TikTok">
+        <svg viewBox="0 0 24 24"><path d="M19.6 6.7a4.8 4.8 0 0 1-3.8-4.2V2h-3.4v13.7a2.9 2.9 0 1 1-2-2.8V9.4a6.3 6.3 0 1 0 5.4 6.3V8.7a8.2 8.2 0 0 0 4.8 1.5V6.8l-1-.1z"/></svg>
+      </a>
+      <a href="https://wa.me/38630348026" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zM12 0a12 12 0 0 0-10.3 18L0 24l6.2-1.6A12 12 0 1 0 12 0z"/></svg>
+      </a>
+    </nav>
+
+    <a class="cta" href="https://cal.com/matic-poredos-tgfoum/posvet-za-osebno-trenerstvo">
+      <div class="label">
+        <strong>Uvodni posvet <em class="badge">BREZPLAČNO</em></strong>
+        <span>45 min po telefonu · spoznava se in narediva plan</span>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+
+    <h2>O meni</h2>
+    <p>Sem Matic. Treniram od 8. razreda, ko sva s prijateljem začela na zunanjih štangah. Kasneje sem se posvetil powerliftingu, osvojil 2. mesto na državnem prvenstvu in nastopil na evropskem prvenstvu v Budimpešti. Nato sem se usmeril v postavo in v to, da se v svojem telesu dobro počutim.</p>
+    <p>Imel sem vzpone in padce, tudi hujšo poškodbo. Zato vem, kako je, ko začneš znova. Moj cilj ni samo tvoja boljša postava. Želim, da dobiš samozavest, da zmoreš vse, kar si zadaš, in da veš, da na tej poti nisi sam.</p>
+
+    <div class="stats">
+      <div class="stat"><b>2.</b><small>mesto na državnem prvenstvu v powerliftingu</small></div>
+      <div class="stat"><b>EP</b><small>nastop na evropskem prvenstvu, Budimpešta</small></div>
+      <div class="stat"><b>9/9</b><small>priznanih dvigov stranke na prvi tekmi</small></div>
+    </div>
+
+    <h2>Kako delava</h2>
+    <div class="list">
+      <div class="item"><div class="dot">1</div><div><strong>Program, narejen zate</strong><span>Trening in prehrana v tvoji osebni tabeli, prilagojeni tvojemu cilju, urniku in opremi.</span></div></div>
+      <div class="item"><div class="dot">2</div><div><strong>Tedenski pregled</strong><span>Vsak teden pregledam tvoje vnose in program po potrebi prilagodim.</span></div></div>
+      <div class="item"><div class="dot">3</div><div><strong>Nedeljski povzetek</strong><span>Vsako nedeljo dobiš osebno poročilo o napredku na mail.</span></div></div>
+      <div class="item"><div class="dot">4</div><div><strong>Vedno dosegljiv</strong><span>Za vprašanja mi pišeš na WhatsApp, ne ostaneš sam s programom.</span></div></div>
+    </div>
+
+    <h2>Za koga</h2>
+    <div class="list">
+      <div class="item"><div class="dot">→</div><div><strong>Očetje</strong><span>Ki želijo nazaj moč, energijo in samozavest ter so pripravljeni stopiti iz cone udobja.</span></div></div>
+      <div class="item"><div class="dot">→</div><div><strong>Mladi</strong><span>Ki želijo graditi telo in samozavest, brez lažnih pričakovanj s socialnih omrežij.</span></div></div>
+    </div>
+
+    <blockquote>
+      Rezultat je odvisen od tvojega truda. Jaz sem tvoj vodič na poti, ki je še ne poznaš.
+      <small>Your effort. My guidance.</small>
+    </blockquote>
+
+    <div class="bottom-cta">
+      <a class="cta" href="https://cal.com/matic-poredos-tgfoum/posvet-za-osebno-trenerstvo">
+        <div class="label"><strong>Rezerviraj brezplačni posvet</strong><span>Prvi korak je en klic</span></div>
+        <div class="arrow">→</div>
+      </a>
+      <a class="link" href="https://wa.me/38630348026">
+        <div class="label"><strong>Imaš vprašanje?</strong><span>Piši mi na WhatsApp</span></div>
+        <div class="arrow">→</div>
+      </a>
+    </div>
+
+    <footer>© PRAGMATIC Coaching · Matic Poredoš</footer>
+  </main>
+</body>
+</html>
